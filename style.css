@@ -18,6 +18,22 @@ td.title {
 td.date {
    background-color: rgb(219, 216, 216);  
 }
-a {
+#tableLink{
     color: #000;
+}
+/* //////////////////////////////////////////// */
+
+ul {
+    list-style: none;
+    font-size: 1em;
+}
+a.listLink{
+    text-decoration: none;
+    color: rgb(46, 44, 44);
+}
+.left {
+    width: 30%
+}
+.right{
+    width: 70%;
 }
