@@ -1,0 +1,36 @@
+<div class="gallery-list">
+  {% for year,season in data.events %}
+    <p class="mb-0">
+      <a class="d-flex mb-0 p-3 align-items-center h2 text-condensed text-muted display-4{{loop.index0>=data.number?' collapsed'}}" data-toggle="collapse" href="#collapse{{year}}" role="button">
+        {{ year }} 
+        {% for k,i in season %}  {{drupal_image(i.uri, 'thumbnail',{'class':'sm'})}} {% endfor %}
+      </a>
+    </p>
+    <div id="collapse{{year}}" class="collapse {{loop.index0<data.number?'show'}}">
+      {% for k,i in season %}
+        <a href="{{ drupal_url('node/'~i.id) }}" class="d-flex py-1 mx-3 align-items-center border-bottom text-secondary">
+          {{drupal_image(i.uri, 'thumbnail',{'class':'mr-3'})}}
+          <div class="py-3 px-4">
+            <h4 class="mb-0">{{ i.title }}</h4>
+            <p class="mb-0 text-muted smaller">{{ i.start|date('F d') }} &mdash; {{ i.end|date('F d') }}</p>
+          </div>
+          <i class="fal fa-arrow-circle-right ml-auto pr-3"></i>
+        </a>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+<style>
+  .gallery-list img { max-width: 6rem}
+  .gallery-list .show { margin-bottom: 3rem; background:rgba(0,0,0,.00);}
+  .gallery-list .show a{ text-decoration:none; background:rgba(0,0,0,.00);transition: all .35s}
+  .gallery-list .show a.border-bottom:last-child{ border:0 !important}
+  .gallery-list .show a:hover{  background:rgba(0,0,0,.05);}
+  .gallery-list .collapse a i{ font-size:2rem; opacity:0; transition: all .7s;}
+  .gallery-list .show a:hover i{  font-size:2rem; opacity:1}
+  .gallery-list a.h2 { text-decoration:none; background:rgba(0,0,0,.00);}
+  .gallery-list a.h2 img { max-width: 0; transition: all .35s}
+  .gallery-list a.h2.collapsed img { max-width: 2.5rem; margin-left:.5rem}
+  .gallery-list a.h2.collapsed img:first-child { margin-left:1.5rem}
+  .gallery-list a.h2.collapsed  { background:none}
+</style>
