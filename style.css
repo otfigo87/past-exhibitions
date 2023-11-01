@@ -1,0 +1,23 @@
+.container{
+    max-width: 1000px;
+}
+table{
+    
+    border-color: grey;
+    width: 70%;
+}
+td {
+    padding: 15px;
+    border: 2px solid white;
+    vertical-align: middle;
+}
+td.title {
+    width: 60%;
+    background-color: #eee;
+}
+td.date {
+   background-color: rgb(219, 216, 216);  
+}
+a {
+    color: #000;
+}
